@@ -53,6 +53,15 @@ CareerLog/
 - 서버 컴포넌트, Route Handler, Server Action → `lib/supabase/server.ts`
 - 절대 혼용 금지 (인증 쿠키 처리 방식이 다름)
 
+### Git 브랜치 전략
+- `main` 브랜치 = 항상 실제로 동작하는 안정된 코드만 유지
+- Stage 01, 02는 기반 공사 단계로 `main`에 직접 작업
+- **Stage 03부터는 기능 브랜치를 만들어서 작업**
+  - 브랜치 이름 규칙: `feat/stage03-resume-agent`, `fix/버그이름` 등
+  - 작업 완료 + 테스트 통과 후 `main`에 병합
+  - 병합 후 브랜치 삭제
+- 새 Stage 또는 독립적인 기능 작업 시작 전 반드시 브랜치 생성
+
 ### 절대 하지 말 것
 - `src/` 디렉토리 사용 금지
 - import alias (`@/`) 사용 금지 — 상대경로 사용
@@ -71,7 +80,7 @@ CareerLog/
 | Stage | 목표 | 상태 |
 |-------|------|------|
 | 01 | 프로젝트 세팅 + DB 설계 + Intake Agent | ✅ 완료 |
-| 02 | Work Log 저장/조회 + 대시보드 UI | 🔲 진행 예정 |
+| 02 | Work Log 저장/조회 + 대시보드 UI | 🔄 진행 중 |
 | 03 | Resume Agent + 이력서 항목 생성 | 🔲 예정 |
 | 04 | 주간 요약 리포트 + UI 다듬기 | 🔲 예정 |
 | 05 | 베타 배포 (Vercel) | 🔲 예정 |
