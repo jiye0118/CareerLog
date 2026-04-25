@@ -54,7 +54,12 @@ export async function signUp(
   }
 
   const supabase = await createClient();
-  const { error } = await supabase.auth.signUp(parsed.data);
+  const { error } = await supabase.auth.signUp({
+    ...parsed.data,
+    options: {
+      emailRedirectTo: "http://localhost:3000/auth/callback",
+    },
+  });
 
   if (error) {
     return { message: error.message };
