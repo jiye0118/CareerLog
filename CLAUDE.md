@@ -80,10 +80,10 @@ CareerLog/
 | Stage | 목표 | 상태 |
 |-------|------|------|
 | 01 | 프로젝트 세팅 + DB 설계 + Intake Agent | ✅ 완료 |
-| 02 | Work Log 저장/조회 + 대시보드 UI | 🔄 진행 중 |
-| 03 | Resume Agent + 이력서 항목 생성 | 🔲 예정 |
+| 02 | Work Log 저장/조회 + 대시보드 UI | ✅ 완료 |
+| 03 | Resume Agent + 이력서 항목 생성 | 🔄 진행 중 |
 | 04 | 주간 요약 리포트 + UI 다듬기 | 🔲 예정 |
-| 05 | 베타 배포 (Vercel) | 🔲 예정 |
+| 05 | 베타 배포 (Vercel) | ✅ 완료 — career-log-eight.vercel.app |
 
 ---
 
