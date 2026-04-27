@@ -77,13 +77,42 @@ CareerLog/
 
 ## MVP 개발 로드맵
 
+**MVP 범위: Stage 03 + 04 완료 = MVP 완성 / Stage 05 = 베타 테스트**
+
 | Stage | 목표 | 상태 |
 |-------|------|------|
 | 01 | 프로젝트 세팅 + DB 설계 + Intake Agent | ✅ 완료 |
-| 02 | Work Log 저장/조회 + 대시보드 UI | ✅ 완료 |
-| 03 | Resume Agent + 이력서 항목 생성 | 🔄 진행 중 |
-| 04 | 주간 요약 리포트 + UI 다듬기 | 🔲 예정 |
-| 05 | 베타 배포 (Vercel) | ✅ 완료 — career-log-eight.vercel.app |
+| 02 | 인증 + 대시보드 UI + Vercel 배포 | ✅ 완료 — career-log-eight.vercel.app |
+| 03 | 안정화(버그 수정) + Resume Agent (핵심 루프 완성) | 🔄 진행 중 |
+| 04 | 기록 정리/조회 — 카테고리 필터, 태그, 별표, UI 다듬기 | 🔲 예정 |
+| 05 | 베타 테스트 + 피드백 반영 | 🔲 예정 |
+
+### Stage 03 세부 태스크
+**선행 작업 (버그 수정 — main 브랜치에서)**
+- [ ] 3-0-1: `emailRedirectTo` 환경변수화 (`NEXT_PUBLIC_APP_URL`)
+- [ ] 3-0-2: Intake Agent JSON 파싱 강화
+- [ ] 3-0-3: AI 분석 실패 시 클라이언트 피드백 명시
+
+**브랜치: `feat/stage03-resume-agent`**
+- [ ] 3-1: `resumeAgent.ts` 구현 (intakeAgent 결과 → resume bullets)
+- [ ] 3-2: `POST /api/resume` 라우트 (work_log_id → bullets 생성 → DB 저장)
+- [ ] 3-3: 대시보드 카드에 "이력서 문장 만들기" 버튼
+- [ ] 3-4: `/dashboard/resume` 기본 페이지 (이력서 항목 목록)
+
+### Stage 04 세부 태스크
+**브랜치: `feat/stage04-record-browse`**
+- [ ] 4-1: resume 페이지 카테고리 필터 (experience / achievement / skill / project)
+- [ ] 4-2: work_log 태그 클릭 → 필터
+- [ ] 4-3: 이력서 항목 삭제 기능
+- [ ] 4-4: 이력서 항목 별표(is_starred) + 별표만 보기
+- [ ] 4-5: 에러 메시지 구체화
+- [ ] 4-6: 로딩 상태 개선 (스피너/skeleton)
+- [ ] 4-7: 대시보드 페이지네이션
+
+### MVP 이후 (베타 테스트 완료 후 결정)
+- `hrExpertAgent`: JD 매칭, 직무 적합도 분석 (현재 stub 유지)
+- `weeklyAgent`: 주간 자동 요약 리포트
+- 포트폴리오 뷰, Notion/Slack 연동, 검색 기능
 
 ---
 
