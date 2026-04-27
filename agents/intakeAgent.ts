@@ -53,9 +53,10 @@ ${input.raw_content}`;
   }
 
   try {
-    // JSON 블록 추출 (```json ... ``` 형식 대응)
-    const jsonMatch = textContent.text.match(/```json\s*([\s\S]*?)\s*```/);
-    const jsonString = jsonMatch ? jsonMatch[1] : textContent.text;
+    // ```json ... ``` 블록 우선 추출, 없으면 { } 범위 추출
+    const fencedMatch = textContent.text.match(/```json\s*([\s\S]*?)\s*```/);
+    const braceMatch = textContent.text.match(/\{[\s\S]*\}/);
+    const jsonString = fencedMatch?.[1] ?? braceMatch?.[0] ?? textContent.text;
     return JSON.parse(jsonString) as IntakeAnalysisResult;
   } catch {
     throw new Error(

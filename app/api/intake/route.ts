@@ -81,6 +81,10 @@ export async function POST(request: NextRequest) {
 
     if (analysisError) {
       console.error("ai_analyses 저장 실패:", analysisError);
+      return NextResponse.json(
+        { error: "AI 분석 결과 저장에 실패했습니다. 다시 시도해주세요." },
+        { status: 500 }
+      );
     }
 
     // 4) work_logs에 태그 업데이트
@@ -91,7 +95,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       work_log: workLog,
-      analysis: analysis ?? null,
+      analysis,
       result: analysisResult,
     });
   } catch (error) {
